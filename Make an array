@@ -1,0 +1,22 @@
+// You are given an array A of length N. You take an array B of length N such that B[i] = 0 for each 1 <= i <= N. You can apply the following operation on B any number of times:
+
+Choose (N - 1) distinct indices and add 1 to each of those indices.
+int solve (int N, int* A) {
+    // Write your code here
+    // n is the length of the array a and A represent array a
+    // T is the number of the test cases
+    // one to second array B
+   if(N==1){
+    return (A[0]==0?0:-1);
+   }
+   long long sum=0;
+   long long max=0;
+   for(int i=0;i<N;i++){
+    sum+=A[i];
+    if(A[i]>max) max=A[i];
+    }
+    if(sum%(N-1)!=0) return -1;
+    long long k=sum/(N-1);
+    if(max>k)    return -1;
+    return k;
+}
