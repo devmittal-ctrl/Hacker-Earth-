@@ -1,0 +1,35 @@
+#include <stdio.h>
+long long absolute_value(long long x) {   // for the absolute value of the sum differnces 
+   if(x<0) return -x;
+   return x;
+}
+int main() {
+    int T;
+    scanf("%d",&T);
+    while (T--) {
+        int N;
+        scanf("%d",&N);
+        long long A[N],sum=0;
+        for (int i=0;i<N;i++) {
+            scanf("%lld ",&A[i]);
+            sum+=A[i];
+        }
+        long long best = sum * sum;   // initial large value
+        int subarray = 1 << N;           // total subsets
+
+        for (int mask = 0; mask < subarray; mask++) {
+            long long sumB = 0;
+            for (int i = 0; i < N; i++) {
+                if (mask & (1 << i)) {
+                    sumB += A[i];
+                }
+            }
+            long long sumC = sum - sumB;
+            long long diff = sumB*sumB - sumC*sumC;
+            long long mod_diff = absolute_value(diff);  // call of the absloute function
+            if (mod_diff<best)
+                best=mod_diff;
+        }
+        printf("%lld\n", best); 
+    }
+}
