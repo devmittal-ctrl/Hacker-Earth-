@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main(){
+	int num;
+	scanf("%d", &num);              	                  // Reading input from STDIN
+          // Writing output to STDOUT
+    // each palindeome sequence must have a length greater than 1
+    while (num--){
+        char str[10000];
+        scanf("%s",str);
+        int fre[26]={0}; //as 26 are the total alphabrts
+        // counting the frequencies if the character 
+        for (int i=0;str[i]!='\0';i++) {
+            fre[str[i]-'a']++;
+        }
+          long long final=0;
+        // now counting the pairs of the character to make te palindrome 
+        for (int i=0;i<26;i++){
+            final=final+(fre[i]/2);
+        }
+          printf("%lld\n",final);
+    }
+   
+}
