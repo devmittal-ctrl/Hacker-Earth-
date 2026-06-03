@@ -1,3 +1,4 @@
 # Hacker-Earth-
-I am trying to solve the hacker earth question in C / c++ language 
+Repository of HackerEarth problem solutions in programming languages.
+showcasing algorithmic thinking, optimized coding practices, and continuous improvement in competitive programming skills.
 where this is the result of my intense practise and hardwork
